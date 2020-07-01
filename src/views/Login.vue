@@ -18,7 +18,7 @@
           </el-form-item>
 
           <el-form-item label="密码" prop="password">
-            <el-input v-model="ruleForm.password" :clearable="true"/>
+            <el-input type="password" v-model="ruleForm.password" :clearable="true"/>
           </el-form-item>
 
           <div class="buttons-box">
@@ -39,8 +39,8 @@
     data() {
       return {
         ruleForm: {
-          username: '',
-          password: '',
+          username: 'xpoet',
+          password: '111111',
         },
         rules: {
           username: [
@@ -59,9 +59,27 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit!');
+
+            const _this = this;
+
+            this.$axios.post(
+              'http://localhost:8080/login',
+              this.ruleForm
+            ).then(res => {
+              if (res.data.code === 200) {
+                const jwt = res.headers['authorization'];
+                const userInfo = res.data.data;
+
+                // 数据共享出去
+                _this.$store.commit('SET_TOKEN', jwt);
+                _this.$store.commit('SET_USERINFO', userInfo);
+
+                // 跳转页面
+                _this.$router.push('notes');
+              }
+            })
+
           } else {
-            console.log('error submit!!');
             return false;
           }
         });
