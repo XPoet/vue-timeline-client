@@ -63,7 +63,7 @@
             const _this = this;
 
             this.$axios.post(
-              'http://localhost:8080/login',
+              '/login',
               this.ruleForm
             ).then(res => {
               if (res.data.code === 200) {
@@ -77,6 +77,8 @@
                 // 跳转页面
                 _this.$router.push('notes');
               }
+            }).catch(error => {
+              console.log('error xx', error);
             })
 
           } else {

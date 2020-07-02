@@ -10,13 +10,15 @@ import 'element-ui/lib/theme-chalk/index.css';
 // 导入 Axios
 import Axios from "axios";
 
+import './axios'
+
 Vue.config.productionTip = false
 
 Vue.use(ElementUI);
 Vue.prototype.$axios = Axios;
 
 new Vue({
-    router,
-    store,
-    render: h => h(App)
+  router,
+  store,
+  render: h => h(App)
 }).$mount('#app')
