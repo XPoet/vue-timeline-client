@@ -3,10 +3,12 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+const userInfo = sessionStorage.getItem('timeline_userInfo');
+
 export default new Vuex.Store({
   state: {
     token: localStorage.getItem('timeline_token'),
-    userInfo: JSON.parse(sessionStorage.getItem('timeline_userInfo'))
+    userInfo: userInfo ? JSON.parse(userInfo) : {}
   },
   mutations: {
     // set
