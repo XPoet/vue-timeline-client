@@ -26,7 +26,7 @@ const routes = [
   },
   {
     path: '/note/add',
-    name: 'NoteEdit',
+    name: 'NoteAdd',
     component: NoteEdit
   },
   {
@@ -35,7 +35,7 @@ const routes = [
     component: NoteDetail
   },
   {
-    path: '/note/:id/edit',
+    path: '/note/:noteId/edit',
     name: 'NoteEdit',
     component: NoteEdit
   },
