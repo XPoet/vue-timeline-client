@@ -13,7 +13,10 @@
       </span>
       <el-divider direction="vertical"></el-divider>
       <span>
-        <el-link href="/note/add" type="primary">写笔记</el-link>
+        <el-link type="primary"
+                 href="/note/add"
+                 :disabled="!userInfo.username"
+        >写笔记</el-link>
       </span>
       <el-divider direction="vertical"></el-divider>
       <span v-if="!userInfo.username">
