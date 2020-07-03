@@ -41,3 +41,21 @@ import mavonEditor from 'mavon-editor';
 import 'mavon-editor/dist/css/index.css';
 Vue.use(mavonEditor);
 ```
+###  解析 Markdown 文档 markdown-it
+
+使用 markdown-it 来解析 markdown 文档
+```js
+const content = '# 111'
+import MI from 'markdown-it';
+new MI().render(content)
+```
+
+# markdown 样式 github-markdown-css
+
+在展示 markdown 内容的 DOM 上，添加类名 markdown-body。
+
+```html
+<div v-html="content"
+     class="markdown-body"
+></div>
+```
