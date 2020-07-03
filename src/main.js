@@ -17,6 +17,9 @@ import Axios from "axios";
 // Axios 全局拦截
 import './axios'
 
+// 路由权限拦截
+import './permission'
+
 Vue.config.productionTip = false
 
 Vue.use(ElementUI);

@@ -27,7 +27,10 @@ const routes = [
   {
     path: '/note/add',
     name: 'NoteAdd',
-    component: NoteEdit
+    component: NoteEdit,
+    meta: {
+      requireAuth: true
+    }
   },
   {
     path: '/note/:noteId',
@@ -37,7 +40,10 @@ const routes = [
   {
     path: '/note/:noteId/edit',
     name: 'NoteEdit',
-    component: NoteEdit
+    component: NoteEdit,
+    meta: {
+      requireAuth: true
+    }
   },
 ]
 
